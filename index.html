@@ -15,7 +15,7 @@
 
   body {
     margin: 0;
-    padding: 0 24px 96px;
+    padding: 0 40px 96px;
     background: #fff;
     color: var(--text);
     font: 16px/1.6 "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -27,20 +27,24 @@
     margin: 0 auto;
   }
 
+  .wrap-wide {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
   header {
     padding: 80px 0 48px;
     text-align: center;
   }
 
   .site {
-    display: inline-block;
-    margin-bottom: 40px;
+    display: block;
+    margin-bottom: 48px;
   }
 
   .site img {
     display: block;
-    width: 260px;
-    max-width: 70%;
+    width: 100%;
     height: auto;
     margin: 0 auto;
   }
@@ -116,8 +120,7 @@
 </head>
 <body>
 
-<div class="wrap">
-
+<div class="wrap-wide">
   <header>
     <a class="site" href="https://surfrockmedia.com">
       <img src="https://raw.githubusercontent.com/surf-rock-io/surf-rock-io.github.io/main/Wide%20-%20%20Small%20White%20Canvas.png" alt="Surf Rock Media">
@@ -125,6 +128,9 @@
     <h1>Our Newsletter Archive</h1>
     <p class="sub">Every issue we&rsquo;ve sent, in one place.</p>
   </header>
+</div>
+
+<div class="wrap">
 
   <main>
     <script
