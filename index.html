@@ -63,6 +63,13 @@
     font-size: 14px;
   }
 
+  #archive-loading {
+    margin: 0;
+    padding: 18px 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
   /* Mailchimp archive list */
   .display_archive {
     margin: 0;
@@ -126,18 +133,39 @@
     <a class="site" href="https://surfrockmedia.com">
       <img src="https://raw.githubusercontent.com/surf-rock-io/surf-rock-io.github.io/main/Wide%20-%20%20Small%20White%20Canvas.png" alt="Surf Rock Media">
     </a>
-    <h1>Our Newsletter Archive</h1>
-    <p class="sub">Every issue we&rsquo;ve sent, in one place.</p>
+    <h1><strong>Our Newsletter Archive</strong></h1>
+    <p class="sub">We send out regular email updates on the first of each month -- here you can see the full archive!</p>
   </header>
 </div>
 
 <div class="wrap">
 
   <main>
+    <p id="archive-loading">Loading&hellip;</p>
+
     <script
       language="javascript"
       src="https://surfrockvideo.us6.list-manage.com/generate-js/?u=b5aa942e9289d1765837fa4d9&show=10&fid=23235"
       type="text/javascript"></script>
+
+    <script>
+      (function () {
+        var msg = document.getElementById('archive-loading');
+        var waited = 0;
+
+        var timer = setInterval(function () {
+          var list = document.querySelector('.display_archive');
+
+          if (list && list.children.length) {
+            clearInterval(timer);
+            msg.parentNode.removeChild(msg);
+          } else if ((waited += 100) >= 8000) {
+            clearInterval(timer);
+            msg.textContent = 'The archive could not be loaded. Please refresh the page.';
+          }
+        }, 100);
+      })();
+    </script>
   </main>
 
   <footer>
